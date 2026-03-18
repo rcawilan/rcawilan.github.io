@@ -11,9 +11,21 @@
 </head>
 
 <body>
-    <div class="sidebar">
+    <div class="mobile-topbar">
+        <button class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="mobile-logo">
+            <a href="#home"><img src="img/logo.png" alt="Logo"></a>
+            PORTFOLIO.
+        </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
         <div class="logo">
-             <a href="#home"><img src="img/Logo.png" alt="Logo"></a>
+            <a href="#home"><img src="img/logo.png" alt="Logo"></a>
             PORTFOLIO.
         </div>
         <ul class="nav-menu">
@@ -129,6 +141,23 @@
             </div>
         </section>
     </div>
+
+    <script>
+        const burger = document.getElementById('burger');
+        const sidebar = document.getElementById('sidebar');
+
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('open');
+            sidebar.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('open');
+                sidebar.classList.remove('open');
+            });
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
